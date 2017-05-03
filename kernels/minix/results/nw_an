@@ -1,0 +1,44 @@
+#!/usr/bin/perl
+use warnings;
+use Data::Dumper;
+use Storable qw(nstore);
+#use Term::ProgressBar 2.00;
+my $outfile = "network";
+ open(NM, "minix_anm.txt") or die;
+ while (<NM>)
+ {
+  my ($file, $none, $section_indicator, $type, $function) = split (/\s+/, $_);
+
+  $function or die;
+#  $type or die;
+#  type will be E for function call
+#  section indicator will be U for undefined (external ref)
+  $nm{$file}{$function} = $section_indicator if ($type =~ /E/) ;
+ }
+ close (NM);
+#print Dumper %nm;
+nstore(\%nm, "$outfile.nm.bin"); 
+
+my %nw;
+my %func_defs;
+my $file_idx, $func_idx;
+foreach my $file (keys %nm)
+{
+ $nw{$file}{idx} = $file_idx++;
+ foreach my $function (keys %{$nm{$file}}) 
+ {
+  if ($nm{$file}{$function} =~ /U/) # section indicator: undefined 
+  {
+   $nw{$file}{out}{$function} = $func_idx++;
+  }
+  else
+  {
+   $nw{$file}{in}{$function} = $func_idx++;
+   $func_defs{$function} = $file;
+  }
+ }
+}
+#print Dumper %nw;
+#print Dumper %func_defs;
+nstore(\%nw, "$outfile.nw.bin"); 
+nstore(\%func_defs, "$outfile.func_defs.bin"); 
