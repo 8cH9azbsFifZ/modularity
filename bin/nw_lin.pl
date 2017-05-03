@@ -23,8 +23,8 @@ open (FILE5, ">$outfile.histolinks.out.txt") or die;
 print FILE1 "Id;Label\n";
 print FILE2 "Source;Target;Label;Weight\n";
 print FILE3 "#filename inlinks outlinks\n";
-print FILE4 "#numlinks numfiles_with_numlinks\n";
-print FILE5 "#numlinks numfiles_with_numlinks\n";
+print FILE4 "#numfiles_with_numlinks numlinks \n";
+print FILE5 "#numfiles_with_numlinks numlinks\n";
 my %h_link;
 my $i;
 foreach my $file (keys %nw)
