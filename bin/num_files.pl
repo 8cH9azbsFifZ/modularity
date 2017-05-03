@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# analyze the number of files in a directory
 use Data::Dumper;
 my @dirs = map {chomp; $_} `find . -type d`;
 #print Dumper @dirs;

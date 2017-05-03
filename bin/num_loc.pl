@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# analyze the lines of codes per file
+
 use File::Find;
 #use Cwd;
 use strict;

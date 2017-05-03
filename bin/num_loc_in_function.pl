@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# analyze the loc in a function
+
 use File::Find;
 #use Cwd;
 use strict;
