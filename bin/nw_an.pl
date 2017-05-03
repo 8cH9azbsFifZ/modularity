@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+
 # input: compiled .o files
 # output: the .bin (.nw / .func_defs) files
 
@@ -38,7 +39,8 @@ nstore(\%nm, "$outfile.nm.bin");
 my %nw;
 my %func_defs;
 $i = 0;
-my $file_idx, $func_idx;
+my $file_idx;
+my $func_idx;
 foreach my $file (keys %nm)
 {
  $progress->update($i++);
