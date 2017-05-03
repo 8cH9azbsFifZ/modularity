@@ -1,0 +1,49 @@
+#!/usr/bin/perl
+use warnings;
+use Data::Dumper;
+use Storable qw(nstore);
+#use Term::ProgressBar 2.00;
+my $outfile = "network";
+ open(NM, "nm.3cols.txt") or die;
+ while (<NM>)
+ {
+  if ($_ =~ /(.*): (.*) (.)/) {
+   my ($file, $type, $function) = ($1, $3, $2);
+  $function or die;
+  $type or die;
+   $nm{$file}{$function} = $type;# if ($type =~ /[]/) ;
+  }
+  #my ($file, $none, $section_indicator, $type, $function) = split (/\s+/, $_);
+
+ }
+ close (NM);
+print Dumper %nm;
+nstore(\%nm, "$outfile.nm.bin"); 
+
+my %nw;
+my %func_defs;
+my $file_idx, $func_idx;
+foreach my $file (keys %nm)
+{
+ $nw{$file}{idx} = $file_idx++;
+ foreach my $function (keys %{$nm{$file}}) 
+ {
+  if ($nm{$file}{$function} =~ /U/) # U == undefines
+  {
+   $nw{$file}{out}{$function} = $func_idx++;
+  }
+  else
+  {
+#	if ($nm{$file}{$function} =~ /T/) # T == defined
+	  # assumption: all symbols not rendered as _undefined_ are accessible
+   {	
+    $nw{$file}{in}{$function} = $func_idx++;
+    $func_defs{$function} = $file;
+   }
+  }
+ }
+}
+#print Dumper %nw;
+#print Dumper %func_defs;
+nstore(\%nw, "$outfile.nw.bin"); 
+nstore(\%func_defs, "$outfile.func_defs.bin"); 
