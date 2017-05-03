@@ -1,0 +1,11 @@
+Source;Target;Label;Weight
+14;1;pair_eam.o;3
+17;14;pair_eam.o;1
+16;13;pair_eam.o;3
+20;19;pair_eam.o;1
+217;235;pair_eam_opt.o;1
+217;234;pair_eam_opt.o;1
+217;236;pair_eam_opt.o;1
+217;237;pair_eam_opt.o;1
+217;232;pair_eam_opt.o;1
+217;233;pair_eam_opt.o;1

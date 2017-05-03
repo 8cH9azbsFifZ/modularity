@@ -1,0 +1,7 @@
+Id;Label
+0;pair_eam.o
+1;pair_eam_opt.o
+2;pair_eam_alloy.o
+3;pair_eam_fs_opt.o
+4;pair_eam_alloy_opt.o
+5;pair_eam_fs.o
