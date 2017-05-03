@@ -1,4 +1,6 @@
 #!/usr/bin/perl
+# input: .bin files
+# output: csv txt files for network analysis
 use warnings;
 use Data::Dumper;
 use Storable;

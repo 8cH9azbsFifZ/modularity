@@ -1,4 +1,7 @@
 #!/usr/bin/perl
+# input: compiled .o files
+# output: the .bin (.nw / .func_defs) files
+
 use warnings;
 use Data::Dumper;
 use Storable qw(nstore);
