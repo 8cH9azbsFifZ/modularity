@@ -1,0 +1,1 @@
+rsync --include="*/" --include="*.o" --exclude="*" -zarvP /home/gerolf/sel4-tutorials-manifest/. . 
