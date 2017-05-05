@@ -170,13 +170,12 @@ GNUTERM = "x11"
 x = 0.0
 ## Last datafile plotted: "linux-4.10.14/results/network.histolinks.in.txt"
 plot [:100][:520] \
-"<sort -k2 -n linux-2.6.39.4/results/network.histolinks.in.txt" u 2:1 w l t"Linux 2.6.39.4", \
-"<sort -k2 -n linux-3.17.2/network.histolinks.in.txt" u 2:1 w l t"Linux 3.17.2" , \
-"<sort -k2 -n linux-4.10.14/results/network.histolinks.in.txt" u 2:1 w l t"Linux 4.10.14" ,\
-"<sort -k2 -n sel4/results/network.histolinks.in.txt" u 2:1 w l t"Sel4" ,\
-"<sort -k2 -n sel4/results/network.histolinks.in.txt" u 2:1 w l t"Sel4" ,\
-"<sort -k2 -n openbsd/results/network.histolinks.in.txt" u 2:1 w l t"OpenBSD" ,\
-"<sort -k2 -n freebsd/results/network.histolinks.in.txt" u 2:1 w l t"FreeBSD" ,\
-"<sort -k2 -n minix3/results/network.histolinks.in.txt" u 2:1 w l t"Minix 3"
+"<sort -k2 -n ../kernels/linux-2.6.39.4/results/network.histolinks.in.txt" u 2:1 w l t"Linux 2.6.39.4", \
+"<sort -k2 -n ../kernels/linux-3.17.2/results/network.histolinks.in.txt" u 2:1 w l t"Linux 3.17.2" , \
+"<sort -k2 -n ../kernels/linux-4.10.14/results/network.histolinks.in.txt" u 2:1 w l t"Linux 4.10.14" ,\
+"<sort -k2 -n ../kernels/sel4/results/network.histolinks.in.txt" u 2:1 w l t"Sel4" ,\
+"<sort -k2 -n ../kernels/openbsd/results/network.histolinks.in.txt" u 2:1 w l t"OpenBSD" ,\
+"<sort -k2 -n ../kernels/freebsd/results/network.histolinks.in.txt" u 2:1 w l t"FreeBSD" ,\
+"<sort -k2 -n ../kernels/minix3/results/network.histolinks.in.txt" u 2:1 w l t"Minix 3"
 
 #    EOF
